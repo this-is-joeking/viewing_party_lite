@@ -3,7 +3,7 @@
 class MovieFacade
   def self.actors(movie_id)
     cast_data = MovieService.actors(movie_id)
-    cast_data[:cast].map do |actor_data|
+    cast_data[:cast].first(10).map do |actor_data|
       Actor.new(actor_data)
     end
   end

@@ -11,7 +11,7 @@ Genre(s):
 <%= @movie.summary %>
 <br>
 <h4>Cast: </h4>
-<%= @actors.first(10).map { |actor| "#{actor.name} as #{actor.character}" }.to_sentence %>
+<%= @actors.map { |actor| "#{actor.name} as #{actor.character}" }.to_sentence %>
 <br>
 <h4><%= @reviews.count %> Reviews:</h4>
 <% @reviews.each do |review| %>

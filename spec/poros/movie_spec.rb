@@ -36,7 +36,7 @@ RSpec.describe Movie do
 
       movie = Movie.new(movie_data)
 
-      expect(movie.genres).to eq(['Drama', 'Rom-Com'])
+      expect(movie.genres).to eq(%w[Drama Rom-Com])
     end
   end
 
