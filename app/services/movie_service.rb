@@ -10,11 +10,20 @@ class MovieService
   end
 
   def self.discover_movie(movie_query)
-    response = if movie_query == 'top rated'
-                 conn.get('/3/movie/top_rated')
-               else
-                 conn.get('/3/search/movie', { query: movie_query, include_adult: false })
-               end
+    if movie_query == 'top rated'
+      top_rated_movie
+    else
+      query_movie(movie_query)
+    end
+  end
+
+  def self.query_movie(movie_query)
+    response = conn.get('/3/search/movie', { query: movie_query, include_adult: false })
+    parse_json(response)
+  end
+
+  def self.top_rated_movie
+    response = conn.get('/3/movie/top_rated')
     parse_json(response)
   end
 
