@@ -9,16 +9,13 @@ class ViewingPartyController < ApplicationController
   end
 
   def create
-    vp = ViewingParty.new(viewing_party_params)
-    if vp.save
-      ViewingPartyUser.create!(viewing_party: vp, user: @user, hosting: true)
-      viewing_party_users_params.each do |user_id|
-        ViewingPartyUser.create!(viewing_party_id: vp.id, user_id: user_id, hosting: false) if User.exists?(user_id)
-      end
+    @vp = ViewingParty.new(viewing_party_params)
+    if @vp.save
+      create_vp_users
       redirect_to user_path(@user)
     else
       redirect_to new_user_movie_viewing_party_path(@user, params[:movie_id])
-      flash[:alert] = vp.errors.full_messages.to_sentence
+      flash[:alert] = @vp.errors.full_messages.to_sentence
     end
   end
 
@@ -26,6 +23,13 @@ class ViewingPartyController < ApplicationController
 
   def find_user
     @user = User.find(params[:user_id])
+  end
+
+  def create_vp_users
+    ViewingPartyUser.create(viewing_party: @vp, user: @user, hosting: true)
+    viewing_party_users_params.each do |user_id|
+      ViewingPartyUser.create(viewing_party_id: @vp.id, user_id: user_id, hosting: false) if User.exists?(user_id)
+    end
   end
 
   def viewing_party_params
