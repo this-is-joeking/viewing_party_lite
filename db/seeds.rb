@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 @user1 = User.create!(name: 'John Doe', email: 'johndoe@ymail.com')
 @user2 = User.create!(name: 'Exene Cervenka', email: 'exene@hotmail.com')
 @user3 = User.create!(name: 'Billy Zoom', email: 'zoomies@aol.com')
@@ -11,10 +13,14 @@
 @user11 = User.create!(name: 'Danny Elfman', email: 'elfman@hotmail.com')
 @user12 = User.create!(name: 'Lemmy Kilmister', email: 'thekingofkings@motorhead.com')
 
-@vp1 = ViewingParty.create!(movie_id: 90652, date: 'Mon, 30 Jan 2023', party_duration: 118, start_time: Time.parse('19:00:00 UTC'))
-@vp2 = ViewingParty.create!(movie_id: 21137, date: 'Tue, 31 Jan 2023', party_duration: 95, start_time: Time.parse('20:00:00 UTC'))
-@vp3 = ViewingParty.create!(movie_id: 48677, date: 'Fri, 10 Feb 2023', party_duration: 300, start_time: Time.parse('17:30:00 UTC'))
-@vp4 = ViewingParty.create!(movie_id: 14577, date: 'Tue, 28 Feb 2023', party_duration: 154, start_time: Time.parse('20:00:00 UTC'))
+@vp1 = ViewingParty.create!(movie_id: 90_652, date: 'Mon, 30 Jan 2023', party_duration: 118,
+                            start_time: Time.parse('19:00:00 UTC'))
+@vp2 = ViewingParty.create!(movie_id: 21_137, date: 'Tue, 31 Jan 2023', party_duration: 95,
+                            start_time: Time.parse('20:00:00 UTC'))
+@vp3 = ViewingParty.create!(movie_id: 48_677, date: 'Fri, 10 Feb 2023', party_duration: 300,
+                            start_time: Time.parse('17:30:00 UTC'))
+@vp4 = ViewingParty.create!(movie_id: 14_577, date: 'Tue, 28 Feb 2023', party_duration: 154,
+                            start_time: Time.parse('20:00:00 UTC'))
 
 @vpu1 = @user1.viewing_party_users.create!(viewing_party_id: @vp1.id, hosting: true)
 @vpu2 = @user2.viewing_party_users.create!(viewing_party_id: @vp2.id, hosting: true)
