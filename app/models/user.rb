@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates_uniqueness_of :email, case_sensitive: false
 
   def find_viewing_party_user(viewing_party)
-    ViewingPartyUser.find_by(user_id: id, viewing_party_id: viewing_party.id)
+    ViewingPartyUser.find_by(user: self, viewing_party: viewing_party)
   end
 
   def name_and_email
