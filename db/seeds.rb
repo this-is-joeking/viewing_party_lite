@@ -1,29 +1,29 @@
 # frozen_string_literal: true
 
 @user1 = User.create!(name: 'John Doe', email: 'johndoe@ymail.com', password: 'plaintxtpassword',
-  password_confirmation: 'plaintxtpassword')
+                      password_confirmation: 'plaintxtpassword')
 @user2 = User.create!(name: 'Exene Cervenka', email: 'exene@hotmail.com', password: 'plaintxtpassword',
-                           password_confirmation: 'plaintxtpassword')
+                      password_confirmation: 'plaintxtpassword')
 @user3 = User.create!(name: 'Billy Zoom', email: 'zoomies@aol.com', password: 'plaintxtpassword1',
-                           password_confirmation: 'plaintxtpassword1')
+                      password_confirmation: 'plaintxtpassword1')
 @user4 = User.create!(name: 'DJ Bonebreak', email: 'djb@yahoo.com', password: 'plaintxtpassword2',
-                           password_confirmation: 'plaintxtpassword2')
+                      password_confirmation: 'plaintxtpassword2')
 @user5 = User.create!(name: 'Bob Sagat', email: 'bobbys@gmail.com', password: 'plaintxtpassword',
-                           password_confirmation: 'plaintxtpassword')
+                      password_confirmation: 'plaintxtpassword')
 @user6 = User.create!(name: 'Don Letts', email: 'lettsgymail.com', password: 'plaintxtpassword',
-                           password_confirmation: 'plaintxtpassword')
+                      password_confirmation: 'plaintxtpassword')
 @user7 = User.create!(name: 'Siouxsie Sioux', email: 'siouxsie@thebanshees.com', password: 'plaintxtpassword',
-                           password_confirmation: 'plaintxtpassword')
+                      password_confirmation: 'plaintxtpassword')
 @user8 = User.create!(name: 'Genesis P. Orridge', email: 'psychictv@.throbbinggristlecom', password: 'plaintxtpassword',
-                           password_confirmation: 'plaintxtpassword')
+                      password_confirmation: 'plaintxtpassword')
 @user9 = User.create!(name: 'Simon Gallup', email: 'simon@thecure.com', password: 'plaintxtpassword',
-                           password_confirmation: 'plaintxtpassword')
+                      password_confirmation: 'plaintxtpassword')
 @user10 = User.create!(name: 'Jere Lehmus', email: 'jerelehmus.gmail.com', password: 'plaintxtpassword',
-                           password_confirmation: 'plaintxtpassword')
+                       password_confirmation: 'plaintxtpassword')
 @user11 = User.create!(name: 'Danny Elfman', email: 'elfman@hotmail.com', password: 'plaintxtpassword',
-                           password_confirmation: 'plaintxtpassword')
+                       password_confirmation: 'plaintxtpassword')
 @user12 = User.create!(name: 'Lemmy Kilmister', email: 'thekingofkings@motorhead.com', password: 'plaintxtpassword',
-                           password_confirmation: 'plaintxtpassword')
+                       password_confirmation: 'plaintxtpassword')
 
 @vp1 = ViewingParty.create!(movie_id: 90_652, date: 'Mon, 30 Jan 2023', party_duration: 118,
                             start_time: Time.parse('19:00:00 UTC'))
