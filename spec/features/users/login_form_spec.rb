@@ -14,6 +14,7 @@ RSpec.describe 'user login page' do
     click_button 'Log in'
 
     expect(current_path).to eq(user_path(user))
+    expect(page).to have_content('Welcome Jack Johnson')
   end
 
   it 'does not login an flashes error if not passed correct email/password combo' do
@@ -47,7 +48,7 @@ RSpec.describe 'user login page' do
 
     visit login_path
 
-    fill_in 'Email', with: 'jack@MAC.com'
+    fill_in 'Email', with: 'JACK@MAC.com'
     fill_in 'Password', with: 'abcdefghi123'
     click_button 'Log in'
 

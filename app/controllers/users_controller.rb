@@ -31,6 +31,7 @@ class UsersController < ApplicationController
     user = User.find_by(email: params[:email].downcase)&.authenticate(params[:password])
     if user
       redirect_to user_path(user)
+      flash[:message] = "Welcome #{user.name}"
     else
       redirect_to login_path
       flash[:alert] = 'Could not find user with that password email combo, try again or register'
