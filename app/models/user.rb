@@ -7,9 +7,9 @@ class User < ApplicationRecord
   has_secure_password
 
   validates_presence_of :name, :email, :password_digest
-  validates_uniqueness_of :email, :case_sensitive => false
+  validates_uniqueness_of :email, case_sensitive: false
 
-  before_save :downcase_email
+  # before_save :downcase_email
 
   def find_viewing_party_user(viewing_party)
     ViewingPartyUser.find_by(user_id: id, viewing_party_id: viewing_party.id)
@@ -21,9 +21,5 @@ class User < ApplicationRecord
 
   def all_other_users
     User.where.not(id: id)
-  end
-
-  def downcase_email
-    email.downcase!
   end
 end

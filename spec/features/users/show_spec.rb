@@ -9,7 +9,8 @@ RSpec.describe 'user dashboard' do
     stub_request(:get, "https://api.themoviedb.org/3/movie/603?api_key=#{ENV['api_key']}")
       .to_return(status: 200, body: File.read('spec/fixtures/movie_details_matrix603.json'), headers: {})
 
-    @user1 = User.create!(name: 'John Doe', email: 'johndoe@ymail.com', password: 'plaintxtpassword', password_confirmation: 'plaintxtpassword')
+    @user1 = User.create!(name: 'John Doe', email: 'johndoe@ymail.com', password: 'plaintxtpassword',
+                          password_confirmation: 'plaintxtpassword')
     @vp1 = ViewingParty.create!(movie_id: 238, date: 'Mon, 30 Jan 2023', party_duration: 118,
                                 start_time: Time.parse('19:00:00 UTC'))
     @vp2 = ViewingParty.create!(movie_id: 603, date: 'Tue, 31 Jan 2023', party_duration: 95,

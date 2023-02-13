@@ -7,11 +7,16 @@ RSpec.describe 'new viewing party page' do
     stub_request(:get, "https://api.themoviedb.org/3/movie/238?api_key=#{ENV['api_key']}")
       .to_return(status: 200, body: File.read('spec/fixtures/movie_details_godfather238.json'), headers: {})
 
-    @user1 = User.create!(name: 'John Doe', email: 'johndoe@ymail.com', password: 'plaintxtpassword', password_confirmation: 'plaintxtpassword')
-    @user2 = User.create!(name: 'John Smith', email: 'johndoe@gmail.com', password: 'plaintxtpassword', password_confirmation: 'plaintxtpassword')
-    @user3 = User.create!(name: 'John Williams', email: 'johndoe@email.com', password: 'plaintxtpassword', password_confirmation: 'plaintxtpassword')
-    @user4 = User.create!(name: 'John Kennedy', email: 'johndoe@webmail.com', password: 'plaintxtpassword', password_confirmation: 'plaintxtpassword')
-    @user5 = User.create!(name: 'John Deere', email: 'johndoe@mail.com', password: 'plaintxtpassword', password_confirmation: 'plaintxtpassword')
+    @user1 = User.create!(name: 'John Doe', email: 'johndoe@ymail.com', password: 'plaintxtpassword',
+                          password_confirmation: 'plaintxtpassword')
+    @user2 = User.create!(name: 'John Smith', email: 'johndoe@gmail.com', password: 'plaintxtpassword',
+                          password_confirmation: 'plaintxtpassword')
+    @user3 = User.create!(name: 'John Williams', email: 'johndoe@email.com', password: 'plaintxtpassword',
+                          password_confirmation: 'plaintxtpassword')
+    @user4 = User.create!(name: 'John Kennedy', email: 'johndoe@webmail.com', password: 'plaintxtpassword',
+                          password_confirmation: 'plaintxtpassword')
+    @user5 = User.create!(name: 'John Deere', email: 'johndoe@mail.com', password: 'plaintxtpassword',
+                          password_confirmation: 'plaintxtpassword')
     @movie = MovieFacade.movie_details(238)
   end
 

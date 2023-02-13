@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  before_action :downcase_email, only: :create
+
   def show
     @user = User.find(params[:id])
     @movies = @user.viewing_parties.map do |vp|
@@ -13,7 +15,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    # require 'pry'; binding.pry
     user = User.new(user_params)
     if user.save
       redirect_to user_path(user)
@@ -24,9 +25,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def login_form
-
-  end
+  def login_form; end
 
   def login_user
     user = User.find_by(email: params[:email].downcase)&.authenticate(params[:password])
@@ -42,5 +41,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def downcase_email
+    params[:user][:email].downcase!
   end
 end
