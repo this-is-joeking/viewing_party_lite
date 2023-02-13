@@ -1,16 +1,16 @@
 <h3> Register a New User </h3>
 <%= form_with model: @user, local: true do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, required: true %>
   <br><br>
   <%= f.label :email %>
-  <%= f.text_field :email %>
+  <%= f.text_field :email, required: true %>
   <br><br>
   <%= f.label :password %>
-  <%= f.password_field :password %>
+  <%= f.password_field :password, required: true %>
   <br><br>
   <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
+  <%= f.password_field :password_confirmation, required: true %>
   <br><br>
   <%= f.submit "Create New User"%>
 <% end %>
