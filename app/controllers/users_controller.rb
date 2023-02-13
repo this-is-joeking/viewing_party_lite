@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   end
 
   def login_user
-    user = User.find_by(email: params[:email])&.authenticate(params[:password])
+    user = User.find_by(email: params[:email].downcase)&.authenticate(params[:password])
     if user
       redirect_to user_path(user)
     else

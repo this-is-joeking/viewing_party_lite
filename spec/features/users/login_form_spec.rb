@@ -36,4 +36,16 @@ RSpec.describe 'user login page' do
     expect(current_path).to eq(login_path)
     expect(page).to have_content('Could not find user with that password email combo, try again or register')
   end
+
+  it 'is case insensitive for email addresses' do
+    user = User.create!(name: 'Jack Johnson', email: 'JACK@mac.com', password: 'abcdefghi123', password_confirmation: 'abcdefghi123')
+
+    visit login_path
+
+    fill_in 'Email', with: 'jack@MAC.com'
+    fill_in 'Password', with: 'abcdefghi123'
+    click_button 'Log in'
+
+    expect(current_path).to eq(user_path(user))
+  end
 end
