@@ -12,11 +12,22 @@ RSpec.describe User do
     it { should validate_presence_of :email }
     it { should validate_presence_of :name }
     it { should validate_uniqueness_of :email }
+    it { should validate_presence_of :password_digest }
+    it { should have_secure_password }
+  end
+
+  describe 'authentication' do
+    it 'should not save a passwords plaintext' do
+      user = User.create!(name: 'Sawson', email: 'dangshawty@hotmail.com', password: 'plaintxtpassword', password_confirmation: 'plaintxtpassword')
+
+      expect(user).to_not have_attribute(:password)
+      expect(user.password_digest).to_not eq('plaintxtpassword')
+    end
   end
 
   describe '#find_viewing_party_user()' do
     it 'returns the viewing party user for the given viewing party' do
-      user1 = User.create!(name: 'John Doe', email: 'johndoe@ymail.com')
+      user1 = User.create!(name: 'John Doe', email: 'johndoe@ymail.com', password: 'plaintxtpassword', password_confirmation: 'plaintxtpassword')
       vp1 = ViewingParty.create!(movie_id: 1, date: 'Mon, 30 Jan 2023', party_duration: 118,
                                  start_time: Time.parse('19:00:00 UTC'))
       vp2 = ViewingParty.create!(movie_id: 2, date: 'Tue, 31 Jan 2023', party_duration: 95,
@@ -31,8 +42,8 @@ RSpec.describe User do
 
   describe '#name_and_email' do
     it 'returns a string of users name and email' do
-      user1 = User.create!(name: 'John Doe', email: 'johndoe@ymail.com')
-      user2 = User.create!(name: 'Scott Smith', email: 'test@email.com')
+      user1 = User.create!(name: 'John Doe', email: 'johndoe@ymail.com', password: 'plaintxtpassword', password_confirmation: 'plaintxtpassword')
+      user2 = User.create!(name: 'Scott Smith', email: 'test@email.com', password: 'plaintxtpassword', password_confirmation: 'plaintxtpassword')
 
       expect(user1.name_and_email).to eq('John Doe (johndoe@ymail.com)')
       expect(user2.name_and_email).to eq('Scott Smith (test@email.com)')
@@ -41,10 +52,10 @@ RSpec.describe User do
 
   describe '#all_other_users' do
     it 'returns a collection of all other suers besides the one this is called on' do
-      user1 = User.create!(name: 'John Doe', email: 'johndoe@ymail.com')
-      user2 = User.create!(name: 'Scott Smith', email: 'test@email.com')
-      user3 = User.create!(name: 'Jack Johnson', email: 'jack@mac.com')
-      user4 = User.create!(name: 'Willie Nelson', email: 'willie@email.com')
+      user1 = User.create!(name: 'John Doe', email: 'johndoe@ymail.com', password: 'plaintxtpassword', password_confirmation: 'plaintxtpassword')
+      user2 = User.create!(name: 'Scott Smith', email: 'test@email.com', password: 'plaintxtpassword', password_confirmation: 'plaintxtpassword')
+      user3 = User.create!(name: 'Jack Johnson', email: 'jack@mac.com', password: 'plaintxtpassword', password_confirmation: 'plaintxtpassword')
+      user4 = User.create!(name: 'Willie Nelson', email: 'willie@email.com', password: 'plaintxtpassword', password_confirmation: 'plaintxtpassword')
 
       expect(user1.all_other_users.sort).to eq([user2, user3, user4].sort)
       expect(user3.all_other_users.sort).to eq([user2, user1, user4].sort)

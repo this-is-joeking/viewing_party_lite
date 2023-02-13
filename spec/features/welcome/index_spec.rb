@@ -11,8 +11,8 @@ RSpec.describe 'Landing Page' do
   end
 
   it 'lists existing users with links to user dashboard' do
-    user1 = User.create!(name: 'John Doe', email: 'john@doe.com')
-    user2 = User.create!(name: 'Jane Smith', email: 'jane@gmail.com')
+    user1 = User.create!(name: 'John Doe', email: 'john@doe.com', password: 'plaintxtpassword', password_confirmation: 'plaintxtpassword')
+    user2 = User.create!(name: 'Jane Smith', email: 'jane@gmail.com', password: 'plaintxtpassword', password_confirmation: 'plaintxtpassword')
 
     visit root_path
 

@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'discover movies page' do
   before(:each) do
-    @user1 = User.create!(name: 'John Doe', email: 'johndoe@ymail.com')
+    @user1 = User.create!(name: 'John Doe', email: 'johndoe@ymail.com', password: 'plaintxtpassword', password_confirmation: 'plaintxtpassword')
   end
 
   it 'has a button discover top rated movies that leads to top 20 rated movies' do

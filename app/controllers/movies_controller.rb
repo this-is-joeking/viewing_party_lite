@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class MoviesController < ApplicationController
-  def index
-    @user = User.find(params[:user_id])
+  before_action :find_user
 
+  def index
     @movies = if params[:q] == 'top rated'
                 MovieFacade.top_rated_movies
               else
@@ -12,9 +12,14 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:user_id])
     @movie = MovieFacade.movie_details(params[:id])
     @actors = MovieFacade.actors(params[:id])
     @reviews = MovieFacade.review_details(params[:id])
+  end
+
+  private
+
+  def find_user
+    @user = User.find(params[:user_id])
   end
 end
