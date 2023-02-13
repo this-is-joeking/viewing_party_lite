@@ -3,7 +3,12 @@
 class MoviesController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @movies = MovieFacade.discover_movie(params[:q])
+
+    @movies = if params[:q] == 'top rated'
+                MovieFacade.top_rated_movies
+              else
+                MovieFacade.discover_movies(params[:q])
+              end
   end
 
   def show

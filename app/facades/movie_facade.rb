@@ -19,8 +19,15 @@ class MovieFacade
     end
   end
 
-  def self.discover_movie(movie_query)
-    movies_data = MovieService.discover_movie(movie_query)
+  def self.discover_movies(movie_query)
+    movies_data = MovieService.discover_movies(movie_query)
+    movies_data[:results].map do |movie_data|
+      Movie.new(movie_data)
+    end
+  end
+
+  def self.top_rated_movies
+    movies_data = MovieService.top_rated_movies
     movies_data[:results].map do |movie_data|
       Movie.new(movie_data)
     end
