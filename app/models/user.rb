@@ -9,8 +9,6 @@ class User < ApplicationRecord
   validates_presence_of :name, :email, :password_digest
   validates_uniqueness_of :email, case_sensitive: false
 
-  # before_save :downcase_email
-
   def find_viewing_party_user(viewing_party)
     ViewingPartyUser.find_by(user_id: id, viewing_party_id: viewing_party.id)
   end
