@@ -4,11 +4,13 @@ class User < ApplicationRecord
   has_many :viewing_party_users
   has_many :viewing_parties, through: :viewing_party_users
 
-  validates_presence_of :name, :email
-  validates_uniqueness_of :email
+  has_secure_password
+
+  validates_presence_of :name, :email, :password_digest
+  validates_uniqueness_of :email, case_sensitive: false
 
   def find_viewing_party_user(viewing_party)
-    ViewingPartyUser.find_by(user_id: id, viewing_party_id: viewing_party.id)
+    ViewingPartyUser.find_by(user: self, viewing_party: viewing_party)
   end
 
   def name_and_email

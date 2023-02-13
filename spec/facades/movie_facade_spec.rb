@@ -39,7 +39,7 @@ RSpec.describe MovieFacade do
   end
 
   it 'returns an array of top rated movies' do
-    movies = MovieFacade.discover_movie('top rated')
+    movies = MovieFacade.top_rated_movies
 
     movies.each do |movie|
       expect(movie).to be_a Movie
@@ -47,7 +47,7 @@ RSpec.describe MovieFacade do
   end
 
   it 'returns an array of queried movies' do
-    movies = MovieFacade.discover_movie('The Matrix')
+    movies = MovieFacade.discover_movies('The Matrix')
 
     movies.each do |movie|
       expect(movie).to be_a Movie

@@ -1,0 +1,12 @@
+<h3>Sign in to ViewingParty</h3>
+<%= form_with url: login_path, local: true do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email, required: true %>
+  <br><br>
+  <%= f.label :password %>
+  <%= f.password_field :password, required: true %>
+  <br><br>
+  <%= f.submit "Log in"%>
+<% end %>
+<br><br>
+<p>Not registered yet? <%= button_to 'Register Here', register_path %>

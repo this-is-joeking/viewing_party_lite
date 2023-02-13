@@ -47,7 +47,7 @@ RSpec.describe MovieService do
   end
 
   it 'can return top rated movies' do
-    response = MovieService.discover_movie('top rated')
+    response = MovieService.top_rated_movies
     top_movie = response[:results][0]
 
     expect(response[:results].count).to eq(20)
@@ -56,7 +56,7 @@ RSpec.describe MovieService do
   end
 
   it 'can return movies based on search' do
-    response = MovieService.discover_movie('The Matrix')
+    response = MovieService.discover_movies('The Matrix')
     search_movie = response[:results][0]
 
     expect(response[:results].count).to be <= 20

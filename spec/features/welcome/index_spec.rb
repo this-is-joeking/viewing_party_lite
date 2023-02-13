@@ -3,16 +3,19 @@
 require 'rails_helper'
 
 RSpec.describe 'Landing Page' do
-  it 'shows title of app, button to create a user' do
+  it 'shows title of app, button to create a user, and link to login' do
     visit root_path
 
     expect(page).to have_content('Viewing Party')
-    expect(page).to have_button('Create a New User')
+    expect(page).to have_button('Create an account')
+    expect(page).to have_button('Log In')
   end
 
   it 'lists existing users with links to user dashboard' do
-    user1 = User.create!(name: 'John Doe', email: 'john@doe.com')
-    user2 = User.create!(name: 'Jane Smith', email: 'jane@gmail.com')
+    user1 = User.create!(name: 'John Doe', email: 'john@doe.com', password: 'plaintxtpassword',
+                         password_confirmation: 'plaintxtpassword')
+    user2 = User.create!(name: 'Jane Smith', email: 'jane@gmail.com', password: 'plaintxtpassword',
+                         password_confirmation: 'plaintxtpassword')
 
     visit root_path
 
