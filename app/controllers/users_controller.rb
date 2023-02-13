@@ -29,14 +29,13 @@ class UsersController < ApplicationController
   end
 
   def login_user
-    user = User.find_by(email: params[:email])
-    if user.authenticate(params[:password])
+    user = User.find_by(email: params[:email])&.authenticate(params[:password])
+    if user
       redirect_to user_path(user)
     else
       redirect_to login_path
       flash[:alert] = 'Could not find user with that password email combo, try again or register'
     end
-    # require 'pry'; binding.pry
   end
 
   private

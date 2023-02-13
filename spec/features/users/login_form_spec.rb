@@ -25,4 +25,15 @@ RSpec.describe 'user login page' do
     expect(current_path).to eq(login_path)
     expect(page).to have_content('Could not find user with that password email combo, try again or register')
   end
+
+  it 'does not login and provides error if email is not registered' do
+    visit login_path
+
+    fill_in 'Email', with: 'jack@mac.com'
+    fill_in 'Password', with: 'password'
+    click_button 'Log in'
+
+    expect(current_path).to eq(login_path)
+    expect(page).to have_content('Could not find user with that password email combo, try again or register')
+  end
 end
