@@ -5,7 +5,7 @@ class ViewingPartyController < ApplicationController
   def new
     if !current_user
       flash[:error] = 'You must be logged in / registered to create a movie party'
-      redirect_to user_movie_path(@user, params[:movie_id])
+      redirect_to movie_path(params[:movie_id])
     else
       @movie = MovieFacade.movie_details(params[:movie_id])
       @viewing_party = ViewingParty.new
