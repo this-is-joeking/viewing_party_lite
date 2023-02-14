@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_action :validate_user, only: :show
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
     @movies = @user.viewing_parties.map do |vp|
       MovieFacade.movie_details(vp.movie_id)
     end
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       session[:user_id] = user.id
-      redirect_to user_path(user)
+      redirect_to dashboard_path
       flash[:alert] = 'User Created Successfully'
     else
       redirect_to register_path
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     user = User.find_by(email: params[:email].downcase)&.authenticate(params[:password])
     if user
       session[:user_id] = user.id
-      redirect_to user_path(user)
+      redirect_to dashboard_path
       flash[:message] = "Welcome #{user.name}"
     else
       redirect_to login_path

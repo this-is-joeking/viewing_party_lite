@@ -22,8 +22,9 @@ RSpec.describe 'register page' do
     fill_in 'Password confirmation', with: 'pass1234'
     click_button 'Create New User'
 
-    expect(current_path).to eq(user_path(user1.id + 1))
+    expect(current_path).to eq(dashboard_path)
     expect(page).to have_content('User Created Successfully')
+    expect(page).to have_content("Teddy Bear's Dashboard")
   end
 
   it 'will take you back to register page if you fail to enter unique email' do

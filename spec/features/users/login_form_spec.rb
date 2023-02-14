@@ -13,7 +13,7 @@ RSpec.describe 'user login page' do
     fill_in 'Password', with: 'abcdefghi123'
     click_button 'Log in'
 
-    expect(current_path).to eq(user_path(user))
+    expect(current_path).to eq(dashboard_path)
     expect(page).to have_content('Welcome Jack Johnson')
   end
 
@@ -52,6 +52,7 @@ RSpec.describe 'user login page' do
     fill_in 'Password', with: 'abcdefghi123'
     click_button 'Log in'
 
-    expect(current_path).to eq(user_path(user))
+    expect(current_path).to eq(dashboard_path)
+    expect(page).to have_content("Jack Johnson's Dashboard")
   end
 end

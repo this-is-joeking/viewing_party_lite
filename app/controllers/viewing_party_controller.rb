@@ -17,7 +17,7 @@ class ViewingPartyController < ApplicationController
     @vp = ViewingParty.new(viewing_party_params)
     if @vp.save
       create_vp_users
-      redirect_to user_path(@user)
+      redirect_to dashboard_path
     else
       redirect_to new_user_movie_viewing_party_path(@user, params[:movie_id])
       flash[:alert] = @vp.errors.full_messages.to_sentence

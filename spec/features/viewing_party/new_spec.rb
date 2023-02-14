@@ -85,22 +85,12 @@ RSpec.describe 'new viewing party page' do
     check(@user3.name.to_s)
     click_button 'Create Party'
 
-    expect(current_path).to eq(user_path(@user1))
+    expect(current_path).to eq(dashboard_path)
     within "#viewing_party#{ViewingParty.maximum(:id)}" do
       expect(page).to have_content('February 03, 2023')
       expect(page).to have_content('Hosting John Smith John Williams')
       expect(page).to have_content('8:00 pm')
       expect(page).to have_content(@movie.title)
-    end
-
-    visit user_path(@user2)
-
-    within "#viewing_party#{ViewingParty.maximum(:id)}" do
-      expect(page).to have_content('February 03, 2023')
-      expect(page).to have_content('Invited')
-      expect(page).to have_content('8:00 pm')
-      expect(page).to have_content(@movie.title)
-      expect(page).to have_content('John Doe John Smith John Williams')
     end
   end
 
