@@ -27,7 +27,7 @@ RSpec.describe 'new viewing party page' do
     fill_in 'Password', with: 'plaintxtpassword'
 
     click_on 'Log in'
-    visit new_user_movie_viewing_party_path(@user1, @movie.id)
+    visit new_movie_viewing_party_path(@movie.id)
 
     expect(page).to have_content('Create a Movie Party for The Godfather')
   end
@@ -39,9 +39,9 @@ RSpec.describe 'new viewing party page' do
     fill_in 'Password', with: 'plaintxtpassword'
 
     click_on 'Log in'
-    visit new_user_movie_viewing_party_path(@user1, @movie.id)
+    visit new_movie_viewing_party_path(@movie.id)
 
-    expect(page).to have_link('Discover Page', href: user_discover_index_path(@user1))
+    expect(page).to have_link('Discover Page', href: discover_index_path)
   end
 
   it 'has a form to enter details for user party and duration defaults to movies runtime' do
@@ -51,7 +51,7 @@ RSpec.describe 'new viewing party page' do
     fill_in 'Password', with: 'plaintxtpassword'
 
     click_on 'Log in'
-    visit new_user_movie_viewing_party_path(@user1, @movie.id)
+    visit new_movie_viewing_party_path(@movie.id)
     users = [@user2, @user3, @user4, @user5]
 
     within '#party-details' do
@@ -75,7 +75,7 @@ RSpec.describe 'new viewing party page' do
     fill_in 'Password', with: 'plaintxtpassword'
 
     click_on 'Log in'
-    visit new_user_movie_viewing_party_path(@user1, @movie.id)
+    visit new_movie_viewing_party_path(@movie.id)
 
     fill_in 'Duration of Party', with: '200'
     fill_in 'Day', with: '%03.%02.%2023'
@@ -102,7 +102,7 @@ RSpec.describe 'new viewing party page' do
 
     click_on 'Log in'
     
-    visit new_user_movie_viewing_party_path(@user2, @movie.id)
+    visit new_movie_viewing_party_path(@movie.id)
 
     fill_in 'Duration of Party', with: '200'
     fill_in 'Day', with: '%03.%02.%2023'
@@ -110,7 +110,7 @@ RSpec.describe 'new viewing party page' do
     check(@user3.name.to_s)
     click_button 'Create Party'
 
-    expect(current_path).to eq(new_user_movie_viewing_party_path(@user2, @movie.id))
+    expect(current_path).to eq(new_movie_viewing_party_path(@movie.id))
     expect(page).to have_content("Start time can't be blank")
   end
 end

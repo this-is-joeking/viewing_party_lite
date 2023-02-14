@@ -19,7 +19,7 @@ class ViewingPartyController < ApplicationController
       create_vp_users
       redirect_to dashboard_path
     else
-      redirect_to new_user_movie_viewing_party_path(@user, params[:movie_id])
+      redirect_to new_movie_viewing_party_path(params[:movie_id])
       flash[:alert] = @vp.errors.full_messages.to_sentence
     end
   end
@@ -27,7 +27,7 @@ class ViewingPartyController < ApplicationController
   private
 
   def find_user
-    @user = User.find(params[:user_id])
+    @user = current_user
   end
 
   def create_vp_users

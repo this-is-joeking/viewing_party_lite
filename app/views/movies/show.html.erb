@@ -1,7 +1,7 @@
 <h3><%= @movie.title %></h3>
-<%= link_to 'Discover Page', user_discover_index_path(@user) %>
+<%= link_to 'Discover Page', discover_index_path %>
 <br>
-<%= link_to "Create Viewing Party for #{@movie.title}", new_user_movie_viewing_party_path(@user, @movie.id) %>
+<%= link_to "Create Viewing Party for #{@movie.title}", new_movie_viewing_party_path(@movie.id) %>
 <br><br>
 Vote: <%= @movie.vote_avg %>  Runtime: <%= @movie.runtime_calc %>
 Genre(s):  

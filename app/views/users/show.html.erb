@@ -1,5 +1,5 @@
 <h3><%= "#{@user.name}'s Dashboard" %></h3>
-<%= button_to 'Discover Movies', user_discover_index_path(@user), method: :get %>
+<%= button_to 'Discover Movies', discover_index_path, method: :get %>
 <hr>
 
 <% @user.viewing_parties.each_with_index do |vp, index| %>
@@ -8,7 +8,7 @@
     <p style="border: solid; padding: 20px; width: 300px; float: left; margin: 20px;">
     <%= image_tag"https://image.tmdb.org/t/p/w200#{@movies[index].poster_path}" %>
     <br>
-    <%= link_to "#{@movies[index].title}", user_movie_path(@user, @movies[index].id)%>
+    <%= link_to "#{@movies[index].title}", movie_path(@movies[index].id)%>
     <br><br>
     <%= vp.date.strftime('%B %d, %Y') %>
     <br>

@@ -12,9 +12,9 @@ RSpec.describe 'Movie results page' do
     stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['api_key']}")
       .to_return(status: 200, body: File.read('spec/fixtures/top_rated_movies.json'))
 
-    visit user_discover_index_path(@user1)
+    visit discover_index_path
 
-    expect(page).to have_link('Find Top Rated Movies', href: "/users/#{@user1.id}/movies?q=top%20rated")
+    expect(page).to have_link('Find Top Rated Movies', href: "/movies?q=top%20rated")
 
     click_link 'Find Top Rated Movies'
 
@@ -27,12 +27,12 @@ RSpec.describe 'Movie results page' do
     stub_request(:get, "https://api.themoviedb.org/3/search/movie?api_key=#{ENV['api_key']}&include_adult=false&query=The%20Matrix")
       .to_return(status: 200, body: File.read('spec/fixtures/search_for_the_matrix.json'))
 
-    visit user_discover_index_path(@user1)
+    visit discover_index_path
 
     fill_in('q', with: 'The Matrix')
     click_on('Find Movies')
 
-    expect(current_path).to eq(user_movies_path(@user1))
+    expect(current_path).to eq(movies_path)
     expect(page).to have_content('The Matrix Resurrections 6.6 The Matrix 8.2')
   end
 
@@ -40,18 +40,18 @@ RSpec.describe 'Movie results page' do
     stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['api_key']}")
       .to_return(status: 200, body: File.read('spec/fixtures/top_rated_movies.json'))
 
-    visit "/users/#{@user1.id}/movies?q=top%20rated"
+    visit "/movies?q=top%20rated"
 
-    expect(page).to have_link('Discover Page', href: user_discover_index_path(@user1))
+    expect(page).to have_link('Discover Page', href: discover_index_path)
   end
 
   it 'links each movie to that leads to the movie details page' do
     stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['api_key']}")
       .to_return(status: 200, body: File.read('spec/fixtures/top_rated_movies.json'))
 
-    visit "/users/#{@user1.id}/movies?q=top%20rated"
+    visit "/movies?q=top%20rated"
 
-    expect(page).to have_link('The Godfather', href: user_movie_path(@user1, 238))
-    expect(page).to have_link('The Shawshank Redemption', href: user_movie_path(@user1, 278))
+    expect(page).to have_link('The Godfather', href: movie_path(238))
+    expect(page).to have_link('The Shawshank Redemption', href: movie_path(278))
   end
 end
