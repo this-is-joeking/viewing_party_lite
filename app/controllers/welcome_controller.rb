@@ -2,6 +2,6 @@
 
 class WelcomeController < ApplicationController
   def index
-    @users = User.all
+    @users = User.where.not(role: 1)
   end
 end

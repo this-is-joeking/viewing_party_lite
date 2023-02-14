@@ -14,6 +14,6 @@ class ApplicationController < ActionController::Base
     return if current_user
 
     flash[:error] = 'You must be logged in to access this page'
-    redirect_to root_path
+    redirect_back(fallback_location: root_path)
   end
 end

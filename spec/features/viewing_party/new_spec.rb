@@ -113,4 +113,19 @@ RSpec.describe 'new viewing party page' do
     expect(current_path).to eq(new_movie_viewing_party_path(@movie.id))
     expect(page).to have_content("Start time can't be blank")
   end
+
+  it 'requires login to create a viewing party' do
+    stub_request(:get, "https://api.themoviedb.org/3/movie/238?api_key=#{ENV['api_key']}")
+      .to_return(status: 200, body: File.read('spec/fixtures/movie_details_godfather238.json'), headers: {})
+    stub_request(:get, "https://api.themoviedb.org/3/movie/238/credits?api_key=#{ENV['api_key']}")
+      .to_return(status: 200, body: File.read('spec/fixtures/cast_details.json'))
+    stub_request(:get, "https://api.themoviedb.org/3/movie/238/reviews?api_key=#{ENV['api_key']}")
+      .to_return(status: 200, body: File.read('spec/fixtures/reviews.json'))
+
+    visit movie_path(@movie.id)
+    click_link 'Create Viewing Party for The Godfather'
+
+    expect(current_path).to eq(movie_path(@movie.id))
+    expect(page).to have_content('You must be logged in / registered to create a movie party')
+  end
 end

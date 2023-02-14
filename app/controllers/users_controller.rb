@@ -31,10 +31,13 @@ class UsersController < ApplicationController
 
   def login_user
     user = User.find_by(email: params[:email].downcase)&.authenticate(params[:password])
-    if user
+    if user && user.default?
       session[:user_id] = user.id
       redirect_to dashboard_path
       flash[:message] = "Welcome #{user.name}"
+    elsif user && user.admin?
+      session[:user_id] = user.id
+      redirect_to admin_dashboard_path
     else
       redirect_to login_path
       flash[:alert] = 'Could not find user with that password email combo, try again or register'
