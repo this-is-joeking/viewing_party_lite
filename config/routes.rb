@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get '/dashboard', to: 'users#show'
 
-  
   resources :users, only: :create
 
   resources :movies, only: %i[index show] do
@@ -16,7 +15,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: :show
   end
-  
+
   resources :discover, only: :index
   get '/login', to: 'users#login_form'
   post '/login', to: 'users#login_user'

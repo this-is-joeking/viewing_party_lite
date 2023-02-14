@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates_presence_of :name, :email, :password_digest
   validates_uniqueness_of :email, case_sensitive: false
 
-  enum role: %w(default admin)
+  enum role: %w[default admin]
 
   def find_viewing_party_user(viewing_party)
     ViewingPartyUser.find_by(user: self, viewing_party: viewing_party)

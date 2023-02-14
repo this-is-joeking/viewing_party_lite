@@ -25,10 +25,8 @@
 @user12 = User.create!(name: 'Lemmy Kilmister', email: 'thekingofkings@motorhead.com', password: 'plaintxtpassword',
                        password_confirmation: 'plaintxtpassword')
 
-                                              
 @admin1 = User.create!(name: 'Admin', email: 'admin@admin.com', password: 'admin1',
-                        password_confirmation: 'admin1', role: 1)
- 
+                       password_confirmation: 'admin1', role: 1)
 
 @vp1 = ViewingParty.create!(movie_id: 90_652, date: 'Mon, 30 Jan 2023', party_duration: 118,
                             start_time: Time.parse('19:00:00 UTC'))

@@ -1,21 +1,25 @@
-class Admin::UsersController < ApplicationController
-  before_action :validate_admin
+# frozen_string_literal: true
 
-  def index
-    @users = User.where.not(role: 1)
-  end
+module Admin
+  class UsersController < ApplicationController
+    before_action :validate_admin
 
-  def show
-    @user = User.find(params[:id])
-    @movies = @user.viewing_parties.map do |vp|
-      MovieFacade.movie_details(vp.movie_id)
+    def index
+      @users = User.where.not(role: 1)
     end
-  end
 
-  private
+    def show
+      @user = User.find(params[:id])
+      @movies = @user.viewing_parties.map do |vp|
+        MovieFacade.movie_details(vp.movie_id)
+      end
+    end
 
-  def validate_admin
-    if !current_user || current_user.default?
+    private
+
+    def validate_admin
+      return unless !current_user || current_user.default?
+
       flash[:error] = 'You are not authorized to access that page'
       redirect_to root_path
     end

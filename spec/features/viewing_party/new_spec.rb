@@ -101,7 +101,7 @@ RSpec.describe 'new viewing party page' do
     fill_in 'Password', with: 'plaintxtpassword'
 
     click_on 'Log in'
-    
+
     visit new_movie_viewing_party_path(@movie.id)
 
     fill_in 'Duration of Party', with: '200'

@@ -14,7 +14,7 @@ RSpec.describe 'discover movies page' do
 
     visit discover_index_path
 
-    expect(page).to have_link('Find Top Rated Movies', href: "/movies?q=top%20rated")
+    expect(page).to have_link('Find Top Rated Movies', href: '/movies?q=top%20rated')
 
     click_link 'Find Top Rated Movies'
     expect(current_path).to eq(movies_path)

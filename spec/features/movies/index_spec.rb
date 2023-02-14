@@ -14,7 +14,7 @@ RSpec.describe 'Movie results page' do
 
     visit discover_index_path
 
-    expect(page).to have_link('Find Top Rated Movies', href: "/movies?q=top%20rated")
+    expect(page).to have_link('Find Top Rated Movies', href: '/movies?q=top%20rated')
 
     click_link 'Find Top Rated Movies'
 
@@ -40,7 +40,7 @@ RSpec.describe 'Movie results page' do
     stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['api_key']}")
       .to_return(status: 200, body: File.read('spec/fixtures/top_rated_movies.json'))
 
-    visit "/movies?q=top%20rated"
+    visit '/movies?q=top%20rated'
 
     expect(page).to have_link('Discover Page', href: discover_index_path)
   end
@@ -49,7 +49,7 @@ RSpec.describe 'Movie results page' do
     stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['api_key']}")
       .to_return(status: 200, body: File.read('spec/fixtures/top_rated_movies.json'))
 
-    visit "/movies?q=top%20rated"
+    visit '/movies?q=top%20rated'
 
     expect(page).to have_link('The Godfather', href: movie_path(238))
     expect(page).to have_link('The Shawshank Redemption', href: movie_path(278))
