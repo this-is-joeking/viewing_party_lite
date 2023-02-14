@@ -20,13 +20,23 @@ RSpec.describe 'user dashboard' do
   end
 
   it "shows the <user's name>'s dashboard at the top of the page" do
-    visit user_path(@user1)
+    visit login_path
+
+    fill_in 'Email', with: 'johndoe@ymail.com'
+    fill_in 'Password', with: 'plaintxtpassword'
+
+    click_on 'Log in'
 
     expect(page).to have_content("John Doe's Dashboard")
   end
 
   it 'has a button to discover movies and when I click that button I am redirected to user discover page' do
-    visit user_path(@user1)
+    visit login_path
+
+    fill_in 'Email', with: 'johndoe@ymail.com'
+    fill_in 'Password', with: 'plaintxtpassword'
+
+    click_on 'Log in'
 
     expect(page).to have_button('Discover Movies')
     click_button 'Discover Movies'
@@ -35,7 +45,12 @@ RSpec.describe 'user dashboard' do
   end
 
   it 'has a section that lists viewing parties' do
-    visit user_path(@user1)
+    visit login_path
+
+    fill_in 'Email', with: 'johndoe@ymail.com'
+    fill_in 'Password', with: 'plaintxtpassword'
+
+    click_on 'Log in'
 
     within "#viewing_party#{@vp1.id}" do
       expect(page).to have_content('January 30, 2023')

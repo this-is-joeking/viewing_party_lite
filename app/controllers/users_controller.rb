@@ -2,6 +2,7 @@
 
 class UsersController < ApplicationController
   before_action :downcase_email, only: :create
+  before_action :validate_user, only: :show
 
   def show
     @user = User.find(params[:id])
@@ -17,6 +18,7 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
+      session[:user_id] = user.id
       redirect_to user_path(user)
       flash[:alert] = 'User Created Successfully'
     else
@@ -30,12 +32,19 @@ class UsersController < ApplicationController
   def login_user
     user = User.find_by(email: params[:email].downcase)&.authenticate(params[:password])
     if user
+      session[:user_id] = user.id
       redirect_to user_path(user)
       flash[:message] = "Welcome #{user.name}"
     else
       redirect_to login_path
       flash[:alert] = 'Could not find user with that password email combo, try again or register'
     end
+  end
+
+  def logout_user
+    session.delete(:user_id)
+    redirect_to root_path
+    flash[:alert] = 'Logout Successful'
   end
 
   private

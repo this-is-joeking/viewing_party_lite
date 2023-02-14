@@ -21,18 +21,36 @@ RSpec.describe 'new viewing party page' do
   end
 
   it 'displays the movie title for the new viewing party' do
+    visit login_path
+
+    fill_in 'Email', with: 'johndoe@ymail.com'
+    fill_in 'Password', with: 'plaintxtpassword'
+
+    click_on 'Log in'
     visit new_user_movie_viewing_party_path(@user1, @movie.id)
 
     expect(page).to have_content('Create a Movie Party for The Godfather')
   end
 
   it 'has a link back to the discover page' do
+    visit login_path
+
+    fill_in 'Email', with: 'johndoe@ymail.com'
+    fill_in 'Password', with: 'plaintxtpassword'
+
+    click_on 'Log in'
     visit new_user_movie_viewing_party_path(@user1, @movie.id)
 
     expect(page).to have_link('Discover Page', href: user_discover_index_path(@user1))
   end
 
   it 'has a form to enter details for user party and duration defaults to movies runtime' do
+    visit login_path
+
+    fill_in 'Email', with: 'johndoe@ymail.com'
+    fill_in 'Password', with: 'plaintxtpassword'
+
+    click_on 'Log in'
     visit new_user_movie_viewing_party_path(@user1, @movie.id)
     users = [@user2, @user3, @user4, @user5]
 
@@ -51,6 +69,12 @@ RSpec.describe 'new viewing party page' do
   end
 
   it 'creates a new viewing party and viewing party users when you complete form with valid data' do
+    visit login_path
+
+    fill_in 'Email', with: 'johndoe@ymail.com'
+    fill_in 'Password', with: 'plaintxtpassword'
+
+    click_on 'Log in'
     visit new_user_movie_viewing_party_path(@user1, @movie.id)
 
     fill_in 'Duration of Party', with: '200'
@@ -81,6 +105,13 @@ RSpec.describe 'new viewing party page' do
   end
 
   it 'does not create a viewing party if you enter invalid data' do
+    visit login_path
+
+    fill_in 'Email', with: 'johndoe@gmail.com'
+    fill_in 'Password', with: 'plaintxtpassword'
+
+    click_on 'Log in'
+    
     visit new_user_movie_viewing_party_path(@user2, @movie.id)
 
     fill_in 'Duration of Party', with: '200'
