@@ -2,9 +2,10 @@
 
 class UsersController < ApplicationController
   before_action :downcase_email, only: :create
+  before_action :validate_user, only: :show
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
     @movies = @user.viewing_parties.map do |vp|
       MovieFacade.movie_details(vp.movie_id)
     end
@@ -17,7 +18,8 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
-      redirect_to user_path(user)
+      session[:user_id] = user.id
+      redirect_to dashboard_path
       flash[:alert] = 'User Created Successfully'
     else
       redirect_to register_path
@@ -29,13 +31,23 @@ class UsersController < ApplicationController
 
   def login_user
     user = User.find_by(email: params[:email].downcase)&.authenticate(params[:password])
-    if user
-      redirect_to user_path(user)
+    if user && user.default?
+      session[:user_id] = user.id
+      redirect_to dashboard_path
       flash[:message] = "Welcome #{user.name}"
+    elsif user && user.admin?
+      session[:user_id] = user.id
+      redirect_to admin_dashboard_path
     else
       redirect_to login_path
       flash[:alert] = 'Could not find user with that password email combo, try again or register'
     end
+  end
+
+  def logout_user
+    session.delete(:user_id)
+    redirect_to root_path
+    flash[:alert] = 'Logout Successful'
   end
 
   private

@@ -1,7 +1,7 @@
 <h3>Create a Movie Party for <%= @movie.title %></h3>
-<%= link_to 'Discover Page', user_discover_index_path(@user) %>
+<%= link_to 'Discover Page', discover_index_path %>
 <div id='party-details'>
-    <%= form_with model: @viewing_party, url: user_movie_viewing_party_index_path(@user, @movie.id), local: true do |f| %>
+    <%= form_with model: @viewing_party, url: movie_viewing_party_index_path(@movie.id), local: true do |f| %>
       <center><p style="border: solid; padding: 20px; width: 50%; ">
         Viewing Party Details
         <br><br>

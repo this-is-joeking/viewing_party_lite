@@ -1,4 +1,4 @@
-<%= link_to 'Discover Page', user_discover_index_path(@user) %>
+<%= link_to 'Discover Page', discover_index_path %>
 
 <table>
   <tr>
@@ -7,7 +7,7 @@
   </tr>
   <% @movies.each do |movie| %>
     <tr>
-      <td><%= link_to movie.title, user_movie_path(@user, movie.id) %></td>
+      <td><%= link_to movie.title, movie_path(movie.id) %></td>
       <td><%= movie.vote_avg %></td>
     </tr>
   <% end %>
