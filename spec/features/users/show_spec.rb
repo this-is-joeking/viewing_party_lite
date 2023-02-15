@@ -18,7 +18,7 @@ RSpec.describe 'user dashboard' do
                                   start_time: Time.parse('20:00:00 UTC'))
       @user1.viewing_party_users.create!(viewing_party_id: @vp1.id, hosting: true)
       @user1.viewing_party_users.create!(viewing_party_id: @vp2.id, hosting: false)
-      
+
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
     end
 
@@ -51,7 +51,7 @@ RSpec.describe 'user dashboard' do
       end
     end
   end
-  
+
   describe 'trying to access dashboard without loggin in' do
     it 'requires you to be a registered user to access a dashboard' do
       visit dashboard_path

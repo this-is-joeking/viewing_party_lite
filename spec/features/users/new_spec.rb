@@ -11,8 +11,8 @@ RSpec.describe 'register page' do
   end
 
   it 'takes user to new dashboard page where :id is id for new user created' do
-    user1 = User.create!(name: 'Dennis Franz', email: 'dennis@aol.com', password: 'plaintxtpassword',
-                         password_confirmation: 'plaintxtpassword')
+    User.create!(name: 'Dennis Franz', email: 'dennis@aol.com', password: 'plaintxtpassword',
+                 password_confirmation: 'plaintxtpassword')
 
     visit register_path
 

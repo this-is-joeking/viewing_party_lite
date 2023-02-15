@@ -21,7 +21,6 @@ RSpec.describe 'new viewing party page' do
       @movie = MovieFacade.movie_details(238)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
-
     end
 
     it 'displays the movie title for the new viewing party' do
