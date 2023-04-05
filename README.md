@@ -1,5 +1,5 @@
 # Viewing Party
-
+![Known Vulnerabilities](https://snyk.io/test/github/this-is-joeking/viewing_party_lite/badge.svg)
 ### About this Project
 
 Viewing Party Lite is an application in which users can explore movie options and create a viewing party event for themselves and other users of the application.
