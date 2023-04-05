@@ -9,7 +9,7 @@ gem 'bootstrap-sass', '~> 3.4.1'
 gem 'jquery-rails'
 gem 'sassc-rails', '>= 2.1.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.8', '>= 5.2.8.1'
+gem 'rails', '~> 6.1.7', '>= 6.1.7.3'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
