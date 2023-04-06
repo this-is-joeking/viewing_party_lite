@@ -25,8 +25,9 @@
 
   <body>
     <span  class='banner'>
-      <%= image_tag 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Home-icon.svg/16px-Home-icon.svg.png' %>
-      <%= link_to 'Home', root_path %> || 
+      <%= link_to root_path, :remote => true do %>
+        <%= image_tag('https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Home-icon.svg/25px-Home-icon.svg.png', alt: 'HOME BUTTON') %>
+      <% end %>
       <%= link_to 'Discover Movies', discover_index_path, method: :get %> || 
       <% if current_user %>
 
