@@ -36,7 +36,7 @@ RSpec.describe 'movie details page', :vcr do
   it 'lists the top 10 credited actors and their character name' do
     visit movie_path(238)
 
-    expect(page).to have_content("Marlon Brando as Vito Corleone, Al Pacino as Michael Corleone, James Caan as Sonny Corleone, Richard S. Castellano as Peter Clemenza, Robert Duvall as Tom Hagen, Sterling Hayden as Captain McCluskey, John Marley as Jack Woltz, Richard Conte as Emilio Barzini, Diane Keaton as Kay Adams-Corleone, and Talia Shire as Connie Corleone")
+    expect(page).to have_content('Marlon Brando as Vito Corleone, Al Pacino as Michael Corleone, James Caan as Sonny Corleone, Richard S. Castellano as Peter Clemenza, Robert Duvall as Tom Hagen, Sterling Hayden as Captain McCluskey, John Marley as Jack Woltz, Richard Conte as Emilio Barzini, Diane Keaton as Kay Adams-Corleone, and Talia Shire as Connie Corleone')
     expect(page).to_not have_content('Abe Vigoda')
   end
 

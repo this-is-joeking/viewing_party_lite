@@ -26,17 +26,17 @@ RSpec.describe User do
     end
   end
 
-  describe 'default role' do 
+  describe 'default role' do
     it 'should set default role to user' do
       user = User.create!(name: 'Sawson', email: 'dangshawty@hotmail.com', password: 'plaintxtpassword',
-        password_confirmation: 'plaintxtpassword')
+                          password_confirmation: 'plaintxtpassword')
 
       expect(user.role).to eq('default')
     end
 
     it 'allows admins to be created' do
       user = User.create!(name: 'Sawson', email: 'dangshawty@hotmail.com', password: 'plaintxtpassword',
-        password_confirmation: 'plaintxtpassword', role: 1)
+                          password_confirmation: 'plaintxtpassword', role: 1)
 
       expect(user.role).to eq('admin')
     end
