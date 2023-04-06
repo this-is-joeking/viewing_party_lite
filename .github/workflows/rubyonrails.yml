@@ -20,8 +20,8 @@ jobs:
           - "5432:5432"
         env:
           POSTGRES_DB: viewing_party_lite_test
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: password
+          POSTGRES_USER: viewing_party_lite
+          POSTGRES_PASSWORD: ""
     env:
       RAILS_ENV: test
       DATABASE_URL: "postgres://postgres:password@localhost:5432/viewing_party_lite_test"
