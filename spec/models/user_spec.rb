@@ -26,6 +26,22 @@ RSpec.describe User do
     end
   end
 
+  describe 'default role' do
+    it 'should set default role to user' do
+      user = User.create!(name: 'Sawson', email: 'dangshawty@hotmail.com', password: 'plaintxtpassword',
+                          password_confirmation: 'plaintxtpassword')
+
+      expect(user.role).to eq('default')
+    end
+
+    it 'allows admins to be created' do
+      user = User.create!(name: 'Sawson', email: 'dangshawty@hotmail.com', password: 'plaintxtpassword',
+                          password_confirmation: 'plaintxtpassword', role: 1)
+
+      expect(user.role).to eq('admin')
+    end
+  end
+
   describe '#find_viewing_party_user()' do
     it 'returns the viewing party user for the given viewing party' do
       user1 = User.create!(name: 'John Doe', email: 'johndoe@ymail.com', password: 'plaintxtpassword',
