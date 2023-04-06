@@ -13,7 +13,7 @@ Live application can be found [here](https://movie-viewing-party.herokuapp.com/)
 1. Setup the database: `rails db:create,migrate,seed`
 1. Setup your api key: Create an account and request an API key from [The Movie Database](https://www.themoviedb.org/signup)
 1. Install figaro: `bundle exec figaro install`
-1. In the config/application.yml file add: `api_key: <TMDB API KEY GOES HERE>`
+1. In the config/application.yml file add: `TMDB_API_KEY: <TMDB API KEY GOES HERE>`
 1. Run the server: `rails s`
 1. In your browser navigate to `http://localhost:3000`
 

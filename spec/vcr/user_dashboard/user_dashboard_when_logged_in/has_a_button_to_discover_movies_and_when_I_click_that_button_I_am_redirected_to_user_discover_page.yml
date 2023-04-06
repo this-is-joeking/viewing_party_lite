@@ -1,0 +1,141 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/238?api_key=<TMDB_API_KEY>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 06 Apr 2023 01:06:04 GMT
+      Server:
+      - openresty
+      Cache-Control:
+      - public, max-age=21642
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 9d48db5c244b9c3e3d162ef155211175
+      X-Memc-Age:
+      - '11179'
+      X-Memc-Expires:
+      - '10441'
+      Etag:
+      - W/"e53826a9c1bef89a70d0c401825854b7"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 db32624c5dc337980a1ac852f19a9c7e.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - LAX53-P3
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - _s_XpdA_6VEST0uQ7xM9Yi9s-zvSmgep4PgP9xaoUVrYDnqEGmn5JQ==
+      Age:
+      - '176'
+    body:
+      encoding: UTF-8
+      string: '{"adult":false,"backdrop_path":"/tmU7GeKVybMWFButWEGl2M4GeiP.jpg","belongs_to_collection":{"id":230,"name":"The
+        Godfather Collection","poster_path":"/9Baumh5J9N1nJUYzNkm0xsgjpwY.jpg","backdrop_path":"/3WZTxpgscsmoUk81TuECXdFOD0R.jpg"},"budget":6000000,"genres":[{"id":18,"name":"Drama"},{"id":80,"name":"Crime"}],"homepage":"http://www.thegodfather.com/","id":238,"imdb_id":"tt0068646","original_language":"en","original_title":"The
+        Godfather","overview":"Spanning the years 1945 to 1955, a chronicle of the
+        fictional Italian-American Corleone crime family. When organized crime family
+        patriarch, Vito Corleone barely survives an attempt on his life, his youngest
+        son, Michael steps in to take care of the would-be killers, launching a campaign
+        of bloody revenge.","popularity":109.659,"poster_path":"/3bhkrj58Vtu7enYsRolD1fZdja1.jpg","production_companies":[{"id":4,"logo_path":"/gz66EfNoYPqHTYI4q9UEN4CbHRc.png","name":"Paramount","origin_country":"US"},{"id":10211,"logo_path":null,"name":"Alfran
+        Productions","origin_country":"US"}],"production_countries":[{"iso_3166_1":"US","name":"United
+        States of America"}],"release_date":"1972-03-14","revenue":245066411,"runtime":175,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"},{"english_name":"Italian","iso_639_1":"it","name":"Italiano"},{"english_name":"Latin","iso_639_1":"la","name":"Latin"}],"status":"Released","tagline":"An
+        offer you can''t refuse.","title":"The Godfather","video":false,"vote_average":8.712,"vote_count":17688}'
+  recorded_at: Thu, 06 Apr 2023 01:09:00 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/603?api_key=<TMDB_API_KEY>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 06 Apr 2023 01:06:18 GMT
+      Server:
+      - openresty
+      Cache-Control:
+      - public, max-age=22715
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 0041c06099d74b7d1ed06bdec0ecdab1
+      X-Memc-Age:
+      - '2252'
+      X-Memc-Expires:
+      - '23884'
+      Etag:
+      - W/"ce2b893bff2cdca84242304c19d78b54"
+      Vary:
+      - Accept-Encoding
+      - Origin
+      X-Cache:
+      - Hit from cloudfront
+      Via:
+      - 1.1 7e52f07d480e9ef9f97c00d438c0189c.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - LAX53-P3
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      X-Amz-Cf-Id:
+      - h0UlxeoIkusNqd-EG3rw5evHaJvvY3u5rISyGywTzxPbybHC5TIJlQ==
+      Age:
+      - '162'
+    body:
+      encoding: UTF-8
+      string: '{"adult":false,"backdrop_path":"/l4QHerTSbMI7qgvasqxP36pqjN6.jpg","belongs_to_collection":{"id":2344,"name":"The
+        Matrix Collection","poster_path":"/bV9qTVHTVf0gkW0j7p7M0ILD4pG.jpg","backdrop_path":"/bRm2DEgUiYciDw3myHuYFInD7la.jpg"},"budget":63000000,"genres":[{"id":28,"name":"Action"},{"id":878,"name":"Science
+        Fiction"}],"homepage":"http://www.warnerbros.com/matrix","id":603,"imdb_id":"tt0133093","original_language":"en","original_title":"The
+        Matrix","overview":"Set in the 22nd century, The Matrix tells the story of
+        a computer hacker who joins a group of underground insurgents fighting the
+        vast and powerful computers who now rule the earth.","popularity":77.377,"poster_path":"/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg","production_companies":[{"id":79,"logo_path":"/tpFpsqbleCzEE2p5EgvUq6ozfCA.png","name":"Village
+        Roadshow Pictures","origin_country":"US"},{"id":372,"logo_path":null,"name":"Groucho
+        II Film Partnership","origin_country":""},{"id":1885,"logo_path":"/tXMFoE8AtNdnFzWOW0aCLwl7xxS.png","name":"Silver
+        Pictures","origin_country":"US"},{"id":174,"logo_path":"/IuAlhI9eVC9Z8UQWOIDdWRKSEJ.png","name":"Warner
+        Bros. Pictures","origin_country":"US"}],"production_countries":[{"iso_3166_1":"US","name":"United
+        States of America"}],"release_date":"1999-03-30","revenue":463517383,"runtime":136,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"Welcome
+        to the Real World.","title":"The Matrix","video":false,"vote_average":8.2,"vote_count":23008}'
+  recorded_at: Thu, 06 Apr 2023 01:09:00 GMT
+recorded_with: VCR 6.1.0

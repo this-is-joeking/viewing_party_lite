@@ -2,14 +2,9 @@
 
 require 'rails_helper'
 
-RSpec.describe 'user dashboard' do
+RSpec.describe 'user dashboard', :vcr do
   describe 'user dashboard when logged in' do
     before(:each) do
-      stub_request(:get, "https://api.themoviedb.org/3/movie/238?api_key=#{ENV['api_key']}")
-        .to_return(status: 200, body: File.read('spec/fixtures/movie_details_godfather238.json'), headers: {})
-      stub_request(:get, "https://api.themoviedb.org/3/movie/603?api_key=#{ENV['api_key']}")
-        .to_return(status: 200, body: File.read('spec/fixtures/movie_details_matrix603.json'), headers: {})
-
       @user1 = User.create!(name: 'John Doe', email: 'johndoe@ymail.com', password: 'plaintxtpassword',
                             password_confirmation: 'plaintxtpassword')
       @vp1 = ViewingParty.create!(movie_id: 238, date: 'Mon, 30 Jan 2023', party_duration: 118,
