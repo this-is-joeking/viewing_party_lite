@@ -24,7 +24,7 @@ jobs:
           POSTGRES_PASSWORD: password
     env:
       RAILS_ENV: test
-      DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
+      DATABASE_URL: "postgres://postgres:password@localhost:5432/viewing_party_lite_test"
       TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
     steps:
       - name: Checkout code
