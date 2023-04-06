@@ -1,5 +1,7 @@
 # Viewing Party
 ![Known Vulnerabilities](https://snyk.io/test/github/this-is-joeking/viewing_party_lite/badge.svg)
+![Github CI](https://github.com/Listen-Up-2210/listen_up_be/actions/workflows/rubyonrails.yml/badge.svg)
+[![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop)
 ### About this Project
 
 Viewing Party Lite is an application in which users can explore movie options and create a viewing party event for themselves and other users of the application.
