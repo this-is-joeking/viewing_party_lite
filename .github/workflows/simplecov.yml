@@ -1,0 +1,8 @@
+- name: Run my tests
+    run: |
+      bundle exec rspec specs/
+
+  # Minimum configuration
+  - uses: joshmfrankel/simplecov-check-action@main
+    with:
+      github_token: ${{ secrets.GITHUB_TOKEN }}
