@@ -41,7 +41,7 @@ jobs:
       - name: Run tests
         run: bin/rake
       - name: SimpleCov+ Action
-        uses: joshmfrankel/simplecov-check-action@1.0.0
+        uses: this-is-joeking/viewing_party_lite@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
