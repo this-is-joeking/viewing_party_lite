@@ -39,8 +39,9 @@ jobs:
         run: bin/rails db:schema:load
       # Add or replace test runners here
       - name: Run tests
-        run: bundle exec rspec spec/
-        uses: this-is-joeking/viewing_party_lite@main
+        run: bin/rake
+
+      - uses: joshmfrankel/simplecov-check-action@1.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
