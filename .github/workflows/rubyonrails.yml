@@ -40,7 +40,7 @@ jobs:
       # Add or replace test runners here
       - name: Run tests
         run: bundle exec rspec spec/
-        uses: this-is-joeking/viewing_party_lite@main
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          - uses: this-is-joeking/viewing_party_lite@main
+            with:
+              github_token: ${{ secrets.GITHUB_TOKEN }}
 
