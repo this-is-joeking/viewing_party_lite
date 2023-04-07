@@ -1,8 +1,0 @@
-- name: Run my tests
-    run: |
-      bundle exec rspec specs/
-
-  # Minimum configuration
-  - uses: this-is-joeking/viewing_party_lite@main
-    with:
-      github_token: ${{ secrets.GITHUB_TOKEN }}
