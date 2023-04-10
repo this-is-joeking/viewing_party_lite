@@ -63,8 +63,8 @@ group :test do
   gem 'rspec-rails'
   gem 'rubocop'
   gem 'shoulda-matchers'
-  gem 'codecov', require: false
-  gem 'simplecov'
+  gem 'simplecov', require: false
+  gem 'simplecov-cobertura'
   gem 'vcr'
   gem 'webmock'
 end
