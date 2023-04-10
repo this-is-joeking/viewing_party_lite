@@ -1,6 +1,6 @@
 # Viewing Party
 ![Known Vulnerabilities](https://snyk.io/test/github/this-is-joeking/viewing_party_lite/badge.svg)
-![Github CI](https://github.com/Listen-Up-2210/listen_up_be/actions/workflows/rubyonrails.yml/badge.svg)
+![Github CI](https://github.com/this-is-joeking/viewing_party_lite/actions/workflows/rubyonrails.yml/badge.svg)
 [![codecov](https://codecov.io/github/this-is-joeking/viewing_party_lite/branch/main/graph/badge.svg?token=FWFJ8JRP6Z)](https://app.codecov.io/gh/this-is-joeking/viewing_party_lite)
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop)
 ### About this Project
