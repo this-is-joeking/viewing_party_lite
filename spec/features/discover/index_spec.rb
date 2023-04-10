@@ -21,7 +21,7 @@ RSpec.describe 'discover movies page', :vcr do
     visit discover_index_path
 
     fill_in('q', with: 'The Matrix')
-    click_on('Find Movies')
+    click_on('Search')
 
     expect(current_path).to eq(movies_path)
   end

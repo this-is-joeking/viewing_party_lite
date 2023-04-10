@@ -24,7 +24,7 @@ RSpec.describe 'Movie results page', :vcr do
     visit discover_index_path
 
     fill_in('q', with: 'The Matrix')
-    click_on('Find Movies')
+    click_on('Search')
 
     expect(current_path).to eq(movies_path)
     expect(page).to have_content('The Matrix 8.2 The Matrix Resurrections 6.536')
