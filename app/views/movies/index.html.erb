@@ -1,14 +1,22 @@
-<%= link_to 'Discover Page', discover_index_path %>
-
-<table>
-  <tr>
-    <th>Movie Title</th>
-    <th>Average Rating</th>
-  </tr>
-  <% @movies.each do |movie| %>
-    <tr>
-      <td><%= link_to movie.title, movie_path(movie.id) %></td>
-      <td><%= movie.vote_avg %></td>
-    </tr>
-  <% end %>
-</table>
+<div class="row">
+  <div class="col-lg-4"></div>
+  <div class="col-lg-4">
+    <h3><%= link_to 'Back to Discover Page', discover_index_path %></h3>
+    <table class="table table-striped table-hover ">
+      <tr>
+        <th>#</th>
+        <th>Movie Title</th>
+        <th>Average Rating</th>
+      </tr>
+      <% x = 1 %>
+      <% @movies.each do |movie| %>
+        <tr>
+          <td><%= x %></td>
+          <% x += 1 %>
+          <td><%= link_to movie.title, movie_path(movie.id) %></td>
+          <td><%= movie.vote_avg %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
