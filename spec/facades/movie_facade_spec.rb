@@ -40,4 +40,20 @@ RSpec.describe MovieFacade, :vcr do
       expect(movie).to be_a Movie
     end
   end
+
+  it 'returns an array of trending movies for the week' do
+    movies = MovieFacade.trending_movies('week')
+    
+    movies.each do |movie|
+      expect(movie).to be_a Movie
+    end
+  end
+
+  it 'returns an array of trending movies for the day' do
+    movies = MovieFacade.trending_movies('day')
+    
+    movies.each do |movie|
+      expect(movie).to be_a Movie
+    end
+  end
 end

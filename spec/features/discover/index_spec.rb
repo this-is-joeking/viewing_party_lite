@@ -8,12 +8,30 @@ RSpec.describe 'discover movies page', :vcr do
                           password_confirmation: 'plaintxtpassword')
   end
 
-  it 'has a button discover top rated movies that leads to top 20 rated movies' do
+  it 'has a button to discover top rated movies that leads to top 20 rated movies' do
     visit discover_index_path
 
     expect(page).to have_link('Top Rated Movies')
 
     click_link 'Top Rated Movies'
+    expect(current_path).to eq(movies_path)
+  end
+
+  it 'has a button trending movies this week that leads to trending movies' do
+    visit discover_index_path
+
+    expect(page).to have_link('Trending Movies This Week')
+
+    click_link 'Trending Movies This Week'
+    expect(current_path).to eq(movies_path)
+  end
+
+  it 'has a button trending movies this week that leads to different trending movies' do
+    visit discover_index_path
+
+    expect(page).to have_link('Trending Movies Today')
+
+    click_link 'Trending Movies Today'
     expect(current_path).to eq(movies_path)
   end
 

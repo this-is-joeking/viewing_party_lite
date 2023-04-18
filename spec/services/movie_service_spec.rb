@@ -50,4 +50,13 @@ RSpec.describe MovieService, :vcr do
     expect(search_movie[:title]).to be_a(String)
     expect(search_movie[:vote_average]).to be_a(Float)
   end
+
+  it 'can return trending movies by week' do
+    response = MovieService.trending('week')
+    trending_movie = response[:results][0]
+
+    expect(response[:results].count).to eq(20)
+    expect(trending_movie[:title]).to be_a(String)
+    expect(trending_movie[:vote_average]).to be_a(Float)
+  end
 end
