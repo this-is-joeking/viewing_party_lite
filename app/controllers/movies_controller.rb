@@ -4,8 +4,10 @@ class MoviesController < ApplicationController
   before_action :current_user
 
   def index
-    @movies = if params[:q] == 'top rated'
+    @movies = if params[:discover] == 'toprated'
                 MovieFacade.top_rated_movies
+              elsif params[:discover] == 'trending'
+                MovieFacade.trending_movies(params[:time_period])
               else
                 MovieFacade.discover_movies(params[:q])
               end

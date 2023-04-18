@@ -32,4 +32,11 @@ class MovieFacade
       Movie.new(movie_data)
     end
   end
+
+  def self.trending_movies(time_period)
+    movies_data = MovieService.trending(time_period)
+    movies_data[:results].map do |movie_data|
+      Movie.new(movie_data)
+    end
+  end
 end

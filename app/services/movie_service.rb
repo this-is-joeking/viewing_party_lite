@@ -19,6 +19,11 @@ class MovieService
     parse_json(response)
   end
 
+  def self.trending(time_window)
+    response = conn.get("/3/trending/movie/#{time_window}")
+    parse_json(response)
+  end
+
   def self.movie_details(movie_id)
     response = conn.get("/3/movie/#{movie_id}")
     parse_json(response)
