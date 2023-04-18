@@ -1,4 +1,7 @@
-<h3> Discover Movies </h3>
-<%= link_to 'Find Top Rated Movies', "/movies?q=top%20rated", method: :get %>
-<hr>
-
+<div class="homebuttons">
+  <h2> Discover Movies </h2>
+  <%= link_to 'Top Rated Movies', "/movies?discover=toprated", class:"btn btn-primary btn-lg", method: :get %>
+  <%= link_to 'Trending Movies This Week', "/movies?discover=trending&time_period=week", class:"btn btn-primary btn-lg", method: :get %>
+  <%= link_to 'Trending Movies Today', "/movies?discover=trending&time_period=day", class:"btn btn-primary btn-lg", method: :get %>
+  <hr>
+</div>
