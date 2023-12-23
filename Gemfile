@@ -62,7 +62,7 @@ group :test do
   gem 'orderly'
   gem 'rspec-rails'
   gem 'rubocop'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', '>= 6.0.0'
   gem 'simplecov', require: false
   gem 'simplecov-cobertura'
   gem 'vcr'
