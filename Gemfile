@@ -61,7 +61,7 @@ group :test do
   gem 'launchy'
   gem 'orderly'
   gem 'rspec-rails'
-  gem 'rubocop'
+  gem 'rubocop', '>= 1.66.0'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'simplecov-cobertura'
