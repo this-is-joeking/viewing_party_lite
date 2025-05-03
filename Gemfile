@@ -60,7 +60,7 @@ group :test do
   gem 'faker'
   gem 'launchy'
   gem 'orderly'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '>= 8.0.0'
   gem 'rubocop'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
